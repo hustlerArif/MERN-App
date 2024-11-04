@@ -17,13 +17,13 @@ function Posts() {
   }, []);
 
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:4000/posts/");
+    const response = await axios.get("https://mern-app-backend-z38n.onrender.com/posts/");
     setItems(response.data);
   };
 
   const addItem = async () => {
     if (title.trim()) {
-      const response = await axios.post("http://localhost:4000/posts/", {
+      const response = await axios.post("https://mern-app-backend-z38n.onrender.com/posts/", {
         title,
         message,
         creator,
@@ -48,7 +48,7 @@ function Posts() {
   const updateItem = async () => {
     if (editingItem && title.trim()) {
       const response = await axios.patch(
-        `http://localhost:4000/posts/${editingItem._id}`,
+        `https://mern-app-backend-z38n.onrender.com/posts/${editingItem._id}`,
         { title, message, creator, tags }
       );
       setItems(
@@ -65,13 +65,13 @@ function Posts() {
   };
 
   const deleteItem = async (id) => {
-    await axios.delete(`http://localhost:4000/posts/${id}`);
+    await axios.delete(`https://mern-app-backend-z38n.onrender.com/posts/${id}`);
     setItems(items.filter((item) => item._id !== id));
   };
 
   const updateCount = async (id) => {
     const response = await axios.patch(
-      `http://localhost:4000/posts/${id}/likePost`,
+      `https://mern-app-backend-z38n.onrender.com/posts/${id}/likePost`,
       { id }
     );
     // setLikeCount(response.data) this will update like but we need to refresh the page/ also require separate state variable
