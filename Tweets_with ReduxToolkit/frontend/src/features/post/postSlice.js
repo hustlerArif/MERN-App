@@ -5,14 +5,14 @@ import axios from "axios";
 // Thunks for async actions
 
 export const fetchItems = createAsyncThunk("/posts/getPosts", async () => {
-  const response = await axios.get("http://localhost:4000/posts/");
+  const response = await axios.get("https://mern-app-post-backend.onrender.com/posts/");
   return response.data;
 });
 
 export const addItem = createAsyncThunk(
   "posts/createPost",
   async ({ title, message, creator, tags }) => {
-    const response = await axios.post("http://localhost:4000/posts/", {
+    const response = await axios.post("https://mern-app-post-backend.onrender.com/posts/", {
       title,
       message,
       creator,
@@ -23,14 +23,14 @@ export const addItem = createAsyncThunk(
 );
 
 export const deleteItem = createAsyncThunk("posts/deletePost", async (id) => {
-  await axios.delete(`http://localhost:4000/posts/${id}`);
+  await axios.delete(`https://mern-app-post-backend.onrender.com/posts/${id}`);
   return id;
 });
 
 export const updateItem = createAsyncThunk(
   "posts/updatePost",
   async ({ id, title, message, creator, tags }) => {
-    const response = await axios.patch(`http://localhost:4000/posts/${id}`, {
+    const response = await axios.patch(`https://mern-app-post-backend.onrender.com/posts/${id}`, {
       title,
       message,
       creator,
@@ -42,7 +42,7 @@ export const updateItem = createAsyncThunk(
 
 export const updateCount = createAsyncThunk("posts/updateCount", async (id) => {
   const response = await axios.patch(
-    `http://localhost:4000/posts/${id}/likePost`,
+    `https://mern-app-post-backend.onrender.com/posts/${id}/likePost`,
     { id }
   );
   return response.data;
