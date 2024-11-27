@@ -55,7 +55,7 @@ function App() {
 
   return (
     <>
-      <h3> socail media post creation CRUD App with state management Redux </h3>
+      <h3> socail media post creation CRUD App with state management Redux Tookit </h3>
 
       <div className="container">
         <div className="container1">
